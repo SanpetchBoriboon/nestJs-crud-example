@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CategoriesModule } from './categories/categories.module';
+import { SubCategoriesModule } from './sub-categories/sub-categories.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CategoriesModule } from './categories/categories.module';
     UsersModule,
     ProductsModule,
     CategoriesModule,
+    SubCategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

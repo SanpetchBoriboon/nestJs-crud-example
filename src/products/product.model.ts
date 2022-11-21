@@ -16,7 +16,7 @@ export interface Product {
   categoryId: string;
 }
 
-interface ProductDetail {
+export interface ProductDetail {
   image: String;
   color: string;
   brand: string;

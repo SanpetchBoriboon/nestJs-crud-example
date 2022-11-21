@@ -1,10 +1,9 @@
-import { Product } from '../product.model';
+import { Product, ProductDetail } from '../product.model';
 
 export class CreateProductDto implements Product {
   _id: string;
   title: string;
-  description: string;
+  detail: ProductDetail;
   price: number;
-  image: string;
   categoryId: string;
 }
