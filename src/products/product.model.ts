@@ -11,8 +11,14 @@ export const ProductSchema = new mongoose.Schema({
 export interface Product {
   _id: string;
   title: string;
-  description: string;
+  detail: ProductDetail;
   price: number;
-  image: String;
   categoryId: string;
+}
+
+interface ProductDetail {
+  image: String;
+  color: string;
+  brand: string;
+  description: string;
 }
