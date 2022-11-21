@@ -12,11 +12,7 @@ export class ProductsService {
   ) {}
 
   async create(createProductDto: CreateProductDto) {
-    const newProduct = new this.productModel({
-      title: createProductDto.title,
-      description: createProductDto.description,
-      price: createProductDto.price,
-    });
+    const newProduct = new this.productModel(createProductDto);
     const result = await newProduct.save();
     return result.id as string;
   }
@@ -32,17 +28,15 @@ export class ProductsService {
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
-    await this.productModel.findByIdAndUpdate(id, {
-      title: updateProductDto.title,
-      description: updateProductDto.description,
-      price: updateProductDto.price,
-    });
+    await this.productModel.findByIdAndUpdate(id, updateProductDto);
     const product = await this.productModel.findById(id);
     return product;
   }
 
   async remove(id: string) {
-    const product = await this.productModel.findOneAndRemove({ _id: id });
+    const product = await this.productModel
+      .findOneAndRemove({ _id: id })
+      .exec();
     return product;
   }
 }

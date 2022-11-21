@@ -4,6 +4,8 @@ export const ProductSchema = new mongoose.Schema({
   title: String,
   description: String,
   price: Number,
+  image: String,
+  categoryId: String,
 });
 
 export interface Product {
@@ -11,4 +13,6 @@ export interface Product {
   title: string;
   description: string;
   price: number;
+  image: String;
+  categoryId: string;
 }
