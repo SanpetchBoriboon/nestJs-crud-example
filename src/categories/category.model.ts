@@ -2,17 +2,13 @@ import * as mongoose from 'mongoose';
 
 export const CategorySchema = new mongoose.Schema({
   title: { type: String, required: true },
-  subCategoryId: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'SubCategories',
-    },
+  products: [
+    { productId: { type: mongoose.Schema.Types.ObjectId, required: true } },
   ],
 });
 
 export interface Category {
   _id: string;
   title: string;
-  subCategoryId: Array<string>;
+  products: [{ productId: string }];
 }

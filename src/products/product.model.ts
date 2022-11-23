@@ -2,17 +2,14 @@ import * as mongoose from 'mongoose';
 
 export const ProductSchema = new mongoose.Schema({
   title: String,
-  description: String,
-  price: Number,
-  image: String,
-  categoryId: String,
+  detail: Object,
+  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
 });
 
 export interface Product {
   _id: string;
   title: string;
   detail: ProductDetail;
-  price: number;
   categoryId: string;
 }
 
@@ -21,4 +18,5 @@ export interface ProductDetail {
   color: string;
   brand: string;
   description: string;
+  price: number;
 }
