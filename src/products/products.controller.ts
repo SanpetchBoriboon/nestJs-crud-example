@@ -22,13 +22,28 @@ export class ProductsController {
 
   @Get()
   findAll() {
-    return this.productsService.findAll();
+    return this.productsService.findAll().then((resp) => {
+      return resp.map((product) => {
+        return {
+          _id: product._id,
+          title: product.title,
+          detail: product.detail,
+          category: product.categoryId['title'],
+        };
+      });
+    });
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    const response = this.productsService.findOne(id);
-    return response;
+    return this.productsService.findOne(id).then((resp) => {
+      return {
+        _id: resp._id,
+        title: resp.title,
+        detail: resp.detail,
+        category: resp.categoryId['title'],
+      };
+    });
   }
 
   @Patch(':id')

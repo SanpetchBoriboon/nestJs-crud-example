@@ -23,7 +23,7 @@ export class CategoriesService {
   }
 
   async findOne(id: string) {
-    const category = await this.categoryModel.findById(id);
+    const category = await this.categoryModel.findById(id).populate('products');
     return category;
   }
 
